@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ERT WORLD</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-js {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+</head>
+<body>
+    <div id="player">
+        <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" playsinline controls autoplay>
+            <source src="https://cbd537474fbad4634b64787657ff6456.msvdn.net/ertworld/ert_world_main/mainabr/playlist_dvr.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+
+    <script>
+        var player = videojs('video-player');
+    </script>
+
+    <script>
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.onkeydown = function (e) {
+
+        // disable F12 key
+        if(e.keyCode == 123) {
+            return false;
+        }
+
+        // disable I key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+
+        // disable J key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+
+        // disable U key
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+// Whenever the user starts pressing any mouse button
+document.addEventListener('mousedown', e => {
+  // Check if the click is the middle button
+  if (e.which === 2) {
+    // Do something when the user does middle click
+    alert('What you are trying to do is not allowed')
+    
+    // Prevent default middle click behaviour of the middle click
+    e.preventDefault()
+  }
+})
+</script>
+</body>
+</html>

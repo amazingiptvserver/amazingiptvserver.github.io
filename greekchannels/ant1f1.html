@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ANT1+ F1</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-js {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+</head>
+<body>
+    <div id="player">
+        <video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" playsinline controls autoplay>
+            <source src="https://d3r0hoxz2ohm3t.cloudfront.net/out/v1/ff10c34afc0d4a038d0474e51f637649/f1.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+
+    <script>
+        var player = videojs('video-player', {
+            html5: {
+                hls: {
+                    overrideNative: true,
+                },
+            },
+        });
+    </script>
+
+    <script>
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.onkeydown = function (e) {
+
+        // disable F12 key
+        if(e.keyCode == 123) {
+            return false;
+        }
+
+        // disable I key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+
+        // disable J key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+
+        // disable U key
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+// Whenever the user starts pressing any mouse button
+document.addEventListener('mousedown', e => {
+  // Check if the click is the middle button
+  if (e.which === 2) {
+    // Do something when the user does middle click
+    alert('What you are trying to do is not allowed')
+    
+    // Prevent default middle click behaviour of the middle click
+    e.preventDefault()
+  }
+})
+</script>
+</body>
+</html>
